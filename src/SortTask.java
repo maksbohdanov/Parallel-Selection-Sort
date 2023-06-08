@@ -1,14 +1,14 @@
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class SortThread<T> extends Thread {
+public class SortTask<T> implements Runnable  {
     private T[] arr;
     private final Comparator<? super T> comparator;
     private final int start;
     private final int end;
     private AtomicInteger minIndex;
-    SortThread(T[] arr, Comparator<? super T> comparator, int start, int end, AtomicInteger minIndex) {
+
+    SortTask(T[] arr, Comparator<? super T> comparator, int start, int end, AtomicInteger minIndex) {
         this.arr = arr;
         this.comparator = comparator;
         this.start = start;
@@ -25,3 +25,4 @@ public class SortThread<T> extends Thread {
         }
     }
 }
+
